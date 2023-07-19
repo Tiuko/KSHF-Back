@@ -133,9 +133,11 @@ const budgetController = {
     },
 
     deleteBudget: async (req, res) => {
+        console.log("iciiiiiiiiiiiiiiiiiiii")
         try {
             const budgetId = req.params.id;
             const budget = await Budget.findByPk(budgetId);
+            console.log(budget)
             await budget.destroy();
             res.status(200).json("Budget deleted");
         } catch (error) {
