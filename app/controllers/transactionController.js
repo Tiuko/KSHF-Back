@@ -87,10 +87,11 @@ const transactionController = {
     },
     createTransaction: async (req, res) => {
         const userId = getUserId(req);
-        
+
         try {
             console.log(req.body)
             const { name, amount, budget_id } = req.body.lastExpense;
+            console.log(req.body.lastExpense);
             // Je crée un array qui récupère mes erreurs : 
             const bodyErrors = [];
             if (!name) {
@@ -122,7 +123,7 @@ const transactionController = {
                         where: {user_id: userId},
                         attributes: []
                     }],
-                }); 
+                });
 
                 // Je trie les valeurs qui m'intéresse 
                 const allTransactions = transactions.map(transaction => transaction.dataValues)
